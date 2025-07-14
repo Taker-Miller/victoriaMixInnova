@@ -43,7 +43,13 @@ def dashboard(request):
 
 # ========================
 # Productos
-# ========================
+# =======================
+
+@login_required
+def stock_productos(request):
+    productos = Producto.objects.all()
+    return render(request, 'inventario/stock.html', {'productos': productos})
+
 
 @login_required
 def lista_productos(request):

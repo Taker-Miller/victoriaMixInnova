@@ -2,6 +2,10 @@
     padding: 10px 0;
     font-size: 1.8rem;
     font-weight: 600;
+    color: #e0e0e0;
+}
+
+body:not(.dark-mode) .dashboard-header {
     color: #222;
 }
 
@@ -16,27 +20,29 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: #2e2e2e;
-    color: white;
+    background-color: #2c2c2c;
+    color: #f5f5f5;
     padding: 20px;
     border-radius: 10px;
     width: 280px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
     transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card i {
     font-size: 2rem;
 }
 
-.card-blue { background-color: #007bff; }
-.card-cyan { background-color: #17a2b8; }
-.card-yellow { background-color: #ffc107; color: #333; }
-.card-dark { background-color: #343a40; }
-.card-orange { background-color: #fd7e14; }
-.card-purple { background-color: #6f42c1; }
-.card-pink { background-color: #e83e8c; }
+/* Colores más oscuros y vivos */
+.card-blue    { background-color: #0056b3; }
+.card-cyan    { background-color: #0d6efd; }
+.card-yellow  { background-color: #ffc107; color: #1a1a1a; }
+.card-dark    { background-color: #1b1b1b; }
+.card-orange  { background-color: #f76707; }
+.card-purple  { background-color: #5f3dc4; }
+.card-pink    { background-color: #c2255c; }

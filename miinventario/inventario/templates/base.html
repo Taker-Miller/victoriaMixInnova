@@ -10,47 +10,149 @@
 
     {% block extra_css %}{% endblock %}
 
-    <style>
-        .modal-sesion {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
+   <style>
+    /* ===== MODO OSCURO ===== */
+    body.dark-mode {
+        background-color: #1e1e1e;
+        color: #e0e0e0;
+    }
 
-        .modal-sesion-content {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 400px;
-            margin: 15% auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-        }
+    .dark-mode .main-section,
+    .dark-mode .main-content,
+    .dark-mode .sidebar,
+    .dark-mode .topbar {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+    }
 
-        .modal-sesion-content h3 {
-            margin-bottom: 20px;
-            color: #512b58;
-        }
+    .dark-mode .sidebar h2,
+    .dark-mode .sidebar a,
+    .dark-mode .submenu-items button,
+    .dark-mode .submenu-items a {
+        color: #f1f1f1;
+    }
 
-        .modal-sesion-content button {
-            background-color: #512b58;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 8px;
-        }
+    .dark-mode .sidebar a:hover,
+    .dark-mode .submenu-items button:hover {
+        color: #00bcd4;
+    }
 
-        .modal-sesion-content button:hover {
-            background-color: #764f8a;
-        }
-    </style>
+    .dark-mode .card {
+        background-color: #3a3a3a;
+        color: #f8f8f8;
+        border: 1px solid #555;
+    }
+
+    .dark-mode .card-yellow {
+        color: #1a1a1a;
+    }
+
+    .dark-mode table {
+        background-color: #2d2d2d;
+        color: #f0f0f0;
+        border-collapse: collapse;
+    }
+
+    .dark-mode th {
+        background-color: #444;
+        color: #fff;
+    }
+
+    .dark-mode td {
+        background-color: #2d2d2d;
+        border-color: #555;
+        color: #e0e0e0;
+    }
+
+    .card-yellow {
+    background-color: #ffc107;
+    color: #fff !important;
+}
+
+.card-yellow i {
+    color: #fff !important;
+}
+
+body.dark-mode .dashboard-header h1 {
+    color: #fff;
+}
+
+
+    .dark-mode .btn-accion {
+        color: #fff;
+    }
+
+    .dark-mode .editar {
+        background-color: #ffc107;
+        color: #000;
+    }
+
+    .dark-mode .eliminar {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .dark-mode .btn-nuevo {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-submenu {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .modal-sesion {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-sesion-content {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 400px;
+        margin: 15% auto;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-sesion-content h3 {
+        margin-bottom: 20px;
+        color: #512b58;
+    }
+
+    .modal-sesion-content button {
+        background-color: #512b58;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    .modal-sesion-content button:hover {
+        background-color: #764f8a;
+    }
+
+    .dark-mode .card {
+    background-color: #3a3a3a;
+    color: #f8f8f8;
+    border: 1px solid #555;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -63,7 +165,7 @@
                 <li><a href="#"><i class="fas fa-shopping-cart"></i> Compras</a></li>
                 <li><a href="#"><i class="fas fa-box-open"></i> Recibidos</a></li>
                 <li><a href="#"><i class="fas fa-undo-alt"></i> Devoluciones</a></li>
-                <li><a href="#"><i class="fas fa-warehouse"></i> Stocks</a></li>
+                <li><a href="{% url 'stock' %}"><i class="fas fa-warehouse"></i> Stocks</a></li>
                 <li><a href="#"><i class="fas fa-cash-register"></i> Ventas</a></li>
                 <li class="divider">Mantenimiento</li>
                 <li><a href="#"><i class="fas fa-truck"></i> Proveedores</a></li>
@@ -77,9 +179,14 @@
                     </a>
                     <ul class="submenu-items" id="submenu-items">
                         <li>
+                            <button onclick="toggleDarkMode()" class="btn-submenu">
+                                <i class="fas fa-adjust"></i> Cambiar contraste
+                            </button>
+                        </li>
+                        <li>
                             <form id="logout-form" method="post" action="{% url 'logout' %}" style="display:inline;">
                                 {% csrf_token %}
-                                <button type="submit" style="background:none; border:none; color:white; cursor:pointer;">
+                                <button type="submit" class="btn-submenu">
                                     <i class="fas fa-sign-out-alt"></i> Cerrar sesión
                                 </button>
                             </form>
@@ -111,7 +218,7 @@
         </div>
     </div>
 
-    <!-- JS para mostrar/ocultar submenú y cierre automático -->
+    <!-- Scripts -->
     <script>
         function toggleSubmenu() {
             const submenu = document.getElementById("submenu-items");
@@ -125,7 +232,7 @@
 
         function reiniciarContador() {
             clearTimeout(timeout);
-            timeout = setTimeout(cerrarSesionAutomatica, 10000); // 10 segundos
+            timeout = setTimeout(cerrarSesionAutomatica, 100000);
         }
 
         function redirigirLogin() {
@@ -137,6 +244,18 @@
         });
 
         reiniciarContador();
+
+        // Modo oscuro persistente
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('modoOscuro', document.body.classList.contains('dark-mode'));
+        }
+
+        window.onload = function () {
+            if (localStorage.getItem('modoOscuro') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+        };
     </script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="stock-container">
+    <h1>Stock de Productos</h1>
+
+    <table class="stock-table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Stock Disponible</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.cantidad }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No hay productos registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'inventario/stock.css' %}">
+{% endblock %}
