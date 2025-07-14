@@ -1,0 +1,42 @@
+.dashboard-header {
+    padding: 10px 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #2e2e2e;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card i {
+    font-size: 2rem;
+}
+
+.card-blue { background-color: #007bff; }
+.card-cyan { background-color: #17a2b8; }
+.card-yellow { background-color: #ffc107; color: #333; }
+.card-dark { background-color: #343a40; }
+.card-orange { background-color: #fd7e14; }
+.card-purple { background-color: #6f42c1; }
+.card-pink { background-color: #e83e8c; }

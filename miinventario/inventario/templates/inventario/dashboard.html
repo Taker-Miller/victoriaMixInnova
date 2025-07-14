@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Victoria Mix Innova</h1>
+</div>
+
+<div class="dashboard-cards">
+    <div class="card card-blue">
+        <i class="fas fa-file-alt"></i>
+        <div>
+            <h3>Órdenes de Compra</h3>
+            <p>4</p>
+        </div>
+    </div>
+    <div class="card card-cyan">
+        <i class="fas fa-boxes"></i>
+        <div>
+            <h3>Compras Recibidas</h3>
+            <p>3</p>
+        </div>
+    </div>
+    <div class="card card-yellow">
+        <i class="fas fa-undo"></i>
+        <div>
+            <h3>Devoluciones</h3>
+            <p>2</p>
+        </div>
+    </div>
+    <div class="card card-dark">
+        <i class="fas fa-cash-register"></i>
+        <div>
+            <h3>Ventas</h3>
+            <p>2</p>
+        </div>
+    </div>
+    <div class="card card-orange">
+        <i class="fas fa-truck"></i>
+        <div>
+            <h3>Proveedores</h3>
+            <p>1</p>
+        </div>
+    </div>
+    <div class="card card-purple">
+        <i class="fas fa-box"></i>
+        <div>
+            <h3>Productos</h3>
+            <p>{{ total_productos }}</p>
+        </div>
+    </div>
+    <div class="card card-pink">
+        <i class="fas fa-users"></i>
+        <div>
+            <h3>Usuarios</h3>
+            <p>{{ total_usuarios }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

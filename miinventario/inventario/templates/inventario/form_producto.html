@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="form-producto">
+    <h1>{% if form.instance.pk %}Editar{% else %}Agregar{% endif %} Producto</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="campo-formulario">
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+        </div>
+        <div class="campo-formulario">
+            {{ form.descripcion.label_tag }}
+            {{ form.descripcion }}
+        </div>
+        <div class="campo-formulario">
+            {{ form.cantidad.label_tag }}
+            {{ form.cantidad }}
+        </div>
+        <div class="campo-formulario">
+            {{ form.precio.label_tag }}
+            {{ form.precio }}
+        </div>
+
+        <button type="submit" class="btn-guardar">Guardar</button>
+        <a href="{% url 'lista_productos' %}" class="btn-volver">← Volver a la lista</a>
+    </form>
+</div>
+{% endblock %}
