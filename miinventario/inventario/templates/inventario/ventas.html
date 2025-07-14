@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ventas{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'inventario/ventas.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="ventas-container">
+    <div class="top-bar">
+        <h2>🧾 Ventas del Día</h2>
+        <div class="acciones-exportar">
+            <a href="{% url 'agregar_venta' %}" class="btn-agregar-venta">
+                <i class="fas fa-plus-circle"></i> Agregar Venta
+            </a>
+            <a href="{% url 'exportar_ventas_pdf' %}" class="btn-exportar">📄 Exportar PDF</a>
+            <a href="{% url 'exportar_ventas_excel' %}" class="btn-exportar">📊 Exportar Excel</a>
+        </div>
+    </div>
+
+    {% if ventas %}
+    <table class="ventas-table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venta in ventas %}
+            <tr>
+                <td>{{ venta.producto.nombre }}</td>
+                <td>{{ venta.cantidad }}</td>
+                <td>${{ venta.precio_unitario }}</td>
+                <td>${{ venta.total }}</td>
+                <td>{{ venta.fecha|date:"d/m/Y H:i" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="no-ventas">
+        <p>No hay ventas registradas hoy.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

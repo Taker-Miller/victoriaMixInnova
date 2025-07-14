@@ -1,0 +1,112 @@
+/* ===== Estilo general para ventas ===== */
+.ventas-container {
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.ventas-container h2 {
+    color: #003366;
+    margin-bottom: 1.5rem;
+}
+
+.acciones-exportar {
+    margin-bottom: 1.5rem;
+}
+
+.btn-exportar,
+.btn-agregar-venta {
+    display: inline-block;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    border: none;
+}
+
+/* Botón Exportar PDF/Excel */
+.btn-exportar {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-exportar:hover {
+    background-color: #0056b3;
+}
+
+/* Botón Agregar Venta */
+.btn-agregar-venta {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-agregar-venta:hover {
+    background-color: #218838;
+}
+
+/* Tabla */
+.tabla-ventas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.tabla-ventas th,
+.tabla-ventas td {
+    padding: 0.9rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+}
+
+.tabla-ventas th {
+    background-color: #003366;
+    color: white;
+}
+
+/* ===== Modo oscuro ===== */
+body.dark-mode .ventas-container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .ventas-container h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .btn-exportar {
+    background-color: #2196f3;
+    color: white;
+}
+
+body.dark-mode .btn-exportar:hover {
+    background-color: #0b7dda;
+}
+
+body.dark-mode .btn-agregar-venta {
+    background-color: #4caf50;
+    color: white;
+}
+
+body.dark-mode .btn-agregar-venta:hover {
+    background-color: #3e8e41;
+}
+
+body.dark-mode .tabla-ventas {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+body.dark-mode .tabla-ventas th {
+    background-color: #444;
+    color: white;
+}
+
+body.dark-mode .tabla-ventas td {
+    background-color: #2d2d2d;
+    border-color: #555;
+    color: #e0e0e0;
+}

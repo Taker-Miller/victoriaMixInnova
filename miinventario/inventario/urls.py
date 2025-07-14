@@ -20,4 +20,10 @@ urlpatterns = [
 
     # Usuarios
     path('usuarios/', views.usuarios, name='usuarios'),
+
+    # Ventas
+    path('ventas/', views.ventas, name='ventas'),
+    path('ventas/agregar/', views.agregar_venta, name='agregar_venta'),
+    path('ventas/exportar/pdf/', views.exportar_ventas_pdf, name='exportar_ventas_pdf'),
+    path('ventas/exportar/excel/', views.exportar_ventas_excel, name='exportar_ventas_excel'),
 ]

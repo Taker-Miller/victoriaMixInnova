@@ -2,9 +2,10 @@
 
 from django.contrib import admin
 from django.urls import path, include
+from inventario.views import login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('inventario.urls')),  # Esto carga tu app inventario
-    
+    path('', login_view, name='inicio'),  # Redirige la raíz al login
+    path('inventario/', include('inventario.urls')),
 ]
